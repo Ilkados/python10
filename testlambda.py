@@ -26,3 +26,12 @@ a.show()
 
 
     
+
+
+# Simple example of the logic, not your specific exercise
+def security_guard(check_function, action_function):
+    def wrapper(person):
+        if check_function(person): # The "Gate"
+            return action_function(person) # Let them in
+        return "Access Denied" # The "Fizzle"
+    return wrapper
