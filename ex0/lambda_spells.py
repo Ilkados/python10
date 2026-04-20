@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     sorted_artifact_list = artifact_sorter(artifact_list)
 
-    print("\nTesting artifact sorter...")
+    print("Testing artifact sorter...")
     if len(sorted_artifact_list) >= 2:
         first_artifact = sorted_artifact_list[0]
         second_artifact = sorted_artifact_list[1]
