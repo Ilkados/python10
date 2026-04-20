@@ -1,12 +1,12 @@
-def counter(start):
-    def inc(step = 1):
-        nonlocal start
-        start += step
-        print(start)
-    return inc
+#build in function ->Reduced
 
-my_inc = counter(5)
-print(my_inc())
-my_inc = counter(100)
-print(my_inc())
-         
+from functools import reduce
+
+
+def sumAll(num1,num2):
+   return  num1 + num2
+
+numbers = [1,2,3,4]
+
+result = reduce(sumAll,numbers)
+print(result)
