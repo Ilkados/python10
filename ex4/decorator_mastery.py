@@ -1,6 +1,6 @@
+import time
 from collections.abc import Callable
 from functools import wraps
-import time
 
 
 def spell_timer(func: Callable) -> Callable:
@@ -14,6 +14,7 @@ def spell_timer(func: Callable) -> Callable:
         return result
 
     return wrapper
+
 
 @spell_timer
 def fireball() -> str:
@@ -56,15 +57,19 @@ def retry_spell(max_attempts: int) -> Callable:
                         )
                     else:
                         return (
-                            f"Spell casting failed after {max_attempts} attempts"
+                            "Spell casting failed after "
+                            f"{max_attempts} attempts"
                         )
 
         return wrapper
 
     return decorator
+
+
 @retry_spell(3)
 def broken_spell() -> str:
     raise ValueError("Spell exploded")
+
 
 class MageGuild:
     @staticmethod
@@ -76,7 +81,8 @@ class MageGuild:
     @power_validator(10)
     def cast_spell(self, spell_name: str, power: int) -> str:
         return f"Successfully cast {spell_name} with {power} power"
-    
+
+
 if __name__ == "__main__":
     print("Testing spell timer...")
     result = fireball()

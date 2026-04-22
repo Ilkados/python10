@@ -59,8 +59,13 @@ if __name__ == "__main__":
             f"comes before {second_artifact['name']} "
             f"({second_artifact['power']} power)"
         )
-
-    mages = [{'name': 'Morgan', 'power': 93, 'element': 'shadow'}, {'name': 'Sage', 'power': 75, 'element': 'fire'}, {'name': 'Casey', 'power': 77, 'element': 'ice'}, {'name': 'Luna', 'power': 95, 'element': 'lightning'}, {'name': 'Zara', 'power': 65, 'element': 'ice'}]
+    mages = [
+        {"name": "Morgan", "power": 93, "element": "shadow"},
+        {"name": "Sage", "power": 75, "element": "fire"},
+        {"name": "Casey", "power": 77, "element": "ice"},
+        {"name": "Luna", "power": 95, "element": "lightning"},
+        {"name": "Zara", "power": 65, "element": "ice"},
+    ]
 
     filtered_mage_list = power_filter(mages, 24)
 
@@ -74,7 +79,7 @@ if __name__ == "__main__":
     print("\nTesting spell transformer...")
     print(" ".join(transformed_spell_list))
 
-    mage_statistics = mage_stats(mage)
+    mage_statistics = mage_stats(filtered_mage_list)
 
     print("\nTesting mage stats...")
     print(
