@@ -15,6 +15,11 @@ def spell_timer(func: Callable) -> Callable:
 
     return wrapper
 
+@spell_timer
+def fireball() -> str:
+    time.sleep(0.1)
+    return "Fireball cast!"
+
 
 def power_validator(min_power: int) -> Callable:
     def decorator(func: Callable) -> Callable:
@@ -57,7 +62,9 @@ def retry_spell(max_attempts: int) -> Callable:
         return wrapper
 
     return decorator
-
+@retry_spell(3)
+def broken_spell() -> str:
+    raise ValueError("Spell exploded")
 
 class MageGuild:
     @staticmethod
@@ -69,19 +76,7 @@ class MageGuild:
     @power_validator(10)
     def cast_spell(self, spell_name: str, power: int) -> str:
         return f"Successfully cast {spell_name} with {power} power"
-
-
-@spell_timer
-def fireball() -> str:
-    time.sleep(0.1)
-    return "Fireball cast!"
-
-
-@retry_spell(3)
-def broken_spell() -> str:
-    raise ValueError("Spell exploded")
-
-
+    
 if __name__ == "__main__":
     print("Testing spell timer...")
     result = fireball()
